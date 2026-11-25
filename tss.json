@@ -1,10 +1,10 @@
 {
   "opis": "Wspólna konfiguracja stron pokazowych i wycen twojastara.site na nowa.twojastara.site. Czytają ją /kup/ (linki Stripe) i bramka każdej wyceny (logowanie Google dla zespołu). Zmiany tylko na polecenie Mateusza; automaty tego pliku nie ruszają.",
   "stripe": {
-    "miesiecznie": "",
-    "jednorazowo": ""
+    "miesiecznie": "https://buy.stripe.com/fZu6oB5lQaUK8Ub1cN5os05",
+    "jednorazowo": "https://buy.stripe.com/8x23cpaGa0g6b2j6x75os06"
   },
-  "stripe_uwaga": "Puste = strona /kup/ pokazuje zamówienie telefonem, WhatsAppem albo mailem. Tu wpisujemy wspólne linki płatności Stripe Greenverge (99 zł miesięcznie przez 12 miesięcy oraz 690 zł jednorazowo) z przekierowaniem po płatności na https://nowa.twojastara.site/kup/?ok=1.",
+  "stripe_uwaga": "Wspólne linki płatności Stripe Greenverge (25.11.2026, decyzja Mateusza 23:18): abonament plink_1Ufoc47jUzLMkYWlgG0ksJjQ (99 zł miesięcznie, produkt „Nowa strona w abonamencie na 12 miesięcy (strona uproszczona)”) i jednorazowo plink_1UfodW7jUzLMkYWlXP5XAHBF (690 zł). Po płatności Stripe przekierowuje na https://nowa.twojastara.site/kup/?ok=1. Subskrypcja w Stripe trwa do anulowania: po sprzedaży abonamentu ustaw w Stripe koniec po 12. płatności.",
   "google_client_id": "",
   "domeny_zespolu": [
     "kooperatywa.online",
