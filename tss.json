@@ -1,0 +1,22 @@
+{
+  "opis": "Wspólna konfiguracja stron pokazowych i wycen twojastara.site na nowa.twojastara.site. Czytają ją /kup/ (linki Stripe) i bramka każdej wyceny (logowanie Google dla zespołu). Zmiany tylko na polecenie Mateusza; automaty tego pliku nie ruszają.",
+  "stripe": {
+    "miesiecznie": "",
+    "jednorazowo": ""
+  },
+  "stripe_uwaga": "Puste = strona /kup/ pokazuje zamówienie telefonem, WhatsAppem albo mailem. Tu wpisujemy wspólne linki płatności Stripe Greenverge (99 zł miesięcznie przez 12 miesięcy oraz 690 zł jednorazowo) z przekierowaniem po płatności na https://nowa.twojastara.site/kup/?ok=1.",
+  "google_client_id": "",
+  "domeny_zespolu": [
+    "kooperatywa.online",
+    "twojastara.site",
+    "lejki.pro",
+    "robimy.ai",
+    "classplus.cc",
+    "deltapsi.pl",
+    "metodyspecjalne.pl",
+    "jbakademia.pl",
+    "silaispokoj.pl",
+    "silaispokoj.online",
+    "zespolyspecjalne.pl"
+  ]
+}

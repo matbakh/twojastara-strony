@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Zamówienie strony | twojastara.site</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --roz: #f5c6dc; --tusz: #0b0b0b; --czerwien: #cc2a1b; --szary: #554950; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 24px; background: var(--roz); color: var(--tusz); font: 16px/1.55 Arial, Helvetica, sans-serif; }
+  main { width: 100%; max-width: 560px; padding: 32px 28px; background: #fff; border: 2px solid var(--tusz); }
+  .marka { margin: 0 0 24px; font-family: "Arial Black", Arial, sans-serif; font-weight: 900; font-size: 18px; letter-spacing: -0.5px; text-transform: uppercase; }
+  .marka span { color: var(--czerwien); }
+  h1 { margin: 0 0 16px; font-family: "Arial Black", Arial, sans-serif; font-weight: 900; font-size: 28px; line-height: 1.05; letter-spacing: -1px; text-transform: uppercase; }
+  p { margin: 0 0 14px; }
+  .wariant { margin: 0 0 18px; padding: 14px 16px; background: var(--tusz); color: #fff; font-weight: bold; }
+  .wariant small { display: block; margin-bottom: 4px; color: var(--roz); font-weight: normal; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+  .akcje { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 16px; }
+  .btn { display: block; padding: 14px 18px; border: 2px solid var(--tusz); background: #fff; color: var(--tusz); font-weight: bold; text-align: center; text-decoration: none; }
+  .btn.glowny { border-color: var(--czerwien); background: var(--czerwien); color: #fff; }
+  .btn:hover, .btn:focus-visible { border-color: var(--tusz); background: var(--tusz); color: #fff; }
+  .maly { color: var(--szary); font-size: 13px; }
+  a { color: var(--tusz); }
+  .sekcja { display: none; }
+  html.przekierowanie #przekierowanie,
+  html.bez-platnosci #zamowienie,
+  html.dziekujemy #dziekujemy,
+  html.brak-wariantu #zamowienie { display: block; }
+  html.brak-wariantu .wariant { display: none; }
+</style>
+<script>
+  // Wspólna strona zakupu stron pokazowych: ?w=jednorazowo|miesiecznie&k=<slug> → Stripe (linki w /tss.json).
+  // Po płatności Stripe wraca na ?ok=1, a stąd do wyceny klienta (?platnosc=ok), żeby nasłuch zapisał zakup.
+  (function () {
+    var html = document.documentElement;
+    var p = new URLSearchParams(location.search);
+    var w = p.get("w");
+    w = w === "miesiecznie" || w === "jednorazowo" ? w : "";
+    var k = (p.get("k") || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
+    window.TSS_KUP = { w: w, k: k };
+    if (p.get("ok") === "1") {
+      var zapis = null;
+      try { zapis = JSON.parse(localStorage.getItem("tss-kup") || "null"); } catch (e) {}
+      var slug = zapis && zapis.k ? String(zapis.k).replace(/[^a-z0-9-]/g, "") : "";
+      if (slug) { location.replace("/" + slug + "/wycena/?platnosc=ok"); return; }
+      html.className = "dziekujemy";
+      return;
+    }
+    if (!w) { html.className = "brak-wariantu"; return; }
+    html.className = "przekierowanie";
+    try { localStorage.setItem("tss-kup", JSON.stringify({ k: k, w: w, t: Date.now() })); } catch (e) {}
+    fetch("/tss.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        var link = j && j.stripe ? j.stripe[w] : "";
+        if (link && /^https:\/\/buy\.stripe\.com\//.test(link)) {
+          location.replace(link + (link.indexOf("?") > -1 ? "&" : "?") + "client_reference_id=" + encodeURIComponent(k || "twojastara"));
+        } else {
+          html.className = "bez-platnosci";
+        }
+      })
+      .catch(function () { html.className = "bez-platnosci"; });
+  })();
+</script>
+</head>
+<body>
+<main>
+  <p class="marka">TWOJASTARA<span>.SITE</span></p>
+
+  <section id="przekierowanie" class="sekcja" aria-live="polite">
+    <h1>Przechodzę do płatności</h1>
+    <p>Za chwilę otworzy się bezpieczna płatność online Stripe.</p>
+  </section>
+
+  <section id="zamowienie" class="sekcja">
+    <h1>Zamówienie strony</h1>
+    <div class="wariant"><small>Wybrany wariant</small><span id="wariant-tekst"></span></div>
+    <p>Płatność online dla tej strony właśnie uruchamiamy. Zamówienie przyjmiemy od razu: telefonicznie, na WhatsAppie albo mailem. Strona i&nbsp;cena zostają takie jak w&nbsp;wycenie.</p>
+    <p class="maly">Do wyboru są dwa warianty: 690&nbsp;zł jednorazowo (strona na własność) albo 99&nbsp;zł miesięcznie przez 12&nbsp;miesięcy (bez opłaty na start).</p>
+    <div class="akcje">
+      <a class="btn glowny" href="tel:+48571510686">Zadzwoń: 571 510 686</a>
+      <a class="btn" id="whatsapp" href="https://wa.me/48571510686" target="_blank" rel="noopener">Napisz na WhatsAppie</a>
+      <a class="btn" id="mail" href="mailto:mateusz.bak@twojastara.site">Napisz maila</a>
+    </div>
+    <p class="maly">Mateusz Bąk, doradca marketingowy twojastara.site</p>
+    <p class="maly"><a id="powrot" href="https://twojastara.site">Wróć do wyceny</a></p>
+  </section>
+
+  <section id="dziekujemy" class="sekcja">
+    <h1>Dziękujemy</h1>
+    <p>Potwierdzenie płatności przyjdzie mailem od Stripe. Odezwiemy się, żeby ustalić publikację strony.</p>
+    <p class="maly">Pytania: 571 510 686, mateusz.bak@twojastara.site</p>
+  </section>
+
+  <noscript><p>Zamówienie: zadzwoń pod 571 510 686 albo napisz na mateusz.bak@twojastara.site.</p></noscript>
+</main>
+<script>
+  (function () {
+    var d = window.TSS_KUP || { w: "", k: "" };
+    var opis = d.w === "miesiecznie" ? "99\u00a0zł miesięcznie przez 12\u00a0miesięcy" : d.w === "jednorazowo" ? "690\u00a0zł jednorazowo, strona na własność" : "";
+    var tekst = "Dzień dobry, chcę zamówić nową stronę" + (d.k ? " (" + d.k + ")" : "") + (opis ? ": " + opis + "." : ".");
+    document.getElementById("wariant-tekst").textContent = opis;
+    document.getElementById("whatsapp").href = "https://wa.me/48571510686?text=" + encodeURIComponent(tekst);
+    document.getElementById("mail").href = "mailto:mateusz.bak@twojastara.site?subject=" + encodeURIComponent("Zamówienie strony" + (d.k ? ": " + d.k : "")) + "&body=" + encodeURIComponent(tekst);
+    if (d.k) document.getElementById("powrot").href = "/" + d.k + "/wycena/";
+  })();
+</script>
+</body>
+</html>
