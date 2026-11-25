@@ -1,0 +1,41 @@
+name: Zasoby klienta (zdjęcia i zrzuty obecnej strony)
+
+on:
+  push:
+    branches: [szablon]
+    paths: ["klienci/*/zamowienie.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zasoby-klientow
+  cancel-in-progress: false
+
+jobs:
+  pobierz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: szablon
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Narzędzia (Playwright i sharp)
+        run: |
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund playwright@1.49.1 sharp@0.33.5
+          npx playwright install --with-deps chromium
+      - name: Pobierz zdjęcia i zrzuty
+        run: node narzedzia/pobierz-zasoby.mjs
+      - name: Zapisz w repozytorium
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add klienci
+          if git diff --cached --quiet; then echo "Brak zmian"; exit 0; fi
+          git commit -m "Zasoby klientów: zdjęcia i zrzuty (automat)"
+          for i in 1 2 3; do git pull --rebase origin szablon && git push origin HEAD:szablon && break; sleep 5; done
