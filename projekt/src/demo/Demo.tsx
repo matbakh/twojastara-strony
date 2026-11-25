@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { KLIENT, POKAZ } from "../klient";
-import { linkStripe, TSS } from "../tss";
+import { linkZakupu, TSS } from "../tss";
 import "./demo.css";
 
 /**
  * Tryb pokazowy twojastara.site (standard z FKU):
- * - różowy pasek na górze z informacją i zakupem (zwijany do „pigułki” w lewym dolnym rogu),
+ * - różowy pasek na górze z informacją i zakupem w dwóch wariantach: 690 zł jednorazowo albo 99 zł miesięcznie
+ *   przez 12 miesięcy (zwijany do „pigułki” w lewym dolnym rogu),
  * - znak wodny, blokada przeciągania i menu kontekstowego zdjęć, blokada wydruku (zamiast strony drukuje się informacja).
  */
 const KLUCZ_ZWINIECIA = `${KLIENT.slug}-demo-zwiniety`;
@@ -19,17 +20,27 @@ function Zamknij() {
   );
 }
 
-function Akcje() {
+function Akcje({ pelne = false }: { pelne?: boolean }) {
+  const { jednorazowo, miesiecznie, okres, okresKrotko } = TSS.ceny;
   return (
     <>
       <a
         {...NOWA_KARTA}
-        href={linkStripe("jednorazowo", KLIENT.slug)}
+        href={linkZakupu("jednorazowo", KLIENT.slug)}
         className="demo-btn"
         data-nasluch-klik="kup-jednorazowo"
-        data-nasluch-etykieta={`Kup za ${TSS.ceny.jednorazowo} (pasek strony pokazowej)`}
+        data-nasluch-etykieta={`Kup za ${jednorazowo} jednorazowo (pasek strony pokazowej)`}
       >
-        Kup za {TSS.ceny.jednorazowo}
+        {pelne ? `Kup za ${jednorazowo} jednorazowo` : `Kup za ${jednorazowo}`}
+      </a>
+      <a
+        {...NOWA_KARTA}
+        href={linkZakupu("miesiecznie", KLIENT.slug)}
+        className="demo-btn demo-btn-ciemny"
+        data-nasluch-klik="kup-abonament"
+        data-nasluch-etykieta={`Kup za ${miesiecznie} miesięcznie przez ${okres} (pasek strony pokazowej)`}
+      >
+        {pelne ? `Kup za ${miesiecznie}/mies. przez ${okres}` : `albo ${miesiecznie}/mies. przez ${okresKrotko}`}
       </a>
       <a {...NOWA_KARTA} href={POKAZ.wycena} className="demo-link" data-nasluch-klik="szczegoly-oferty">
         Szczegóły oferty
@@ -57,9 +68,9 @@ function Arkusz({ zamknij }: { zamknij: () => void }) {
           <Zamknij />
         </button>
         <div className="demo-sheet-actions">
-          <Akcje />
+          <Akcje pelne />
         </div>
-        <p className="demo-note">Płatność online przez Stripe.</p>
+        <p className="demo-note">Dwa warianty do wyboru. Płatność online przez Stripe.</p>
       </div>
     </>
   );
@@ -81,8 +92,8 @@ function Dymek({ zamknij }: { zamknij: () => void }) {
   }, [zamknij]);
   return (
     <div className="demo-popover" role="dialog" aria-label="Kup tę stronę">
-      <Akcje />
-      <p className="demo-note">Płatność online przez Stripe.</p>
+      <Akcje pelne />
+      <p className="demo-note">Dwa warianty do wyboru. Płatność online przez Stripe.</p>
     </div>
   );
 }

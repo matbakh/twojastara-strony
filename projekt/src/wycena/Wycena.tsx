@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type R
 import { Logo, Sygnet } from "../logo/Logo";
 import { nasluch } from "../lib/nasluch";
 import { plik, t } from "../lib/tekst";
-import { linkStripe, TSS } from "../tss";
+import { linkZakupu, TSS } from "../tss";
 import { WYCENA } from "./dane";
 
 const KLUCZ = `${WYCENA.slug}-wycena-auth`;
@@ -124,6 +124,123 @@ function Stopka() {
   );
 }
 
+type Konfiguracja = { google_client_id?: string; domeny_zespolu?: string[] };
+type GoogleId = {
+  initialize: (opcje: Record<string, unknown>) => void;
+  renderButton: (miejsce: HTMLElement, opcje: Record<string, unknown>) => void;
+};
+type OknoGoogle = Window & { google?: { accounts?: { id?: GoogleId } } };
+
+/** Wspólna konfiguracja z nowa.twojastara.site/tss.json (identyfikator logowania Google i domeny zespołu). */
+function useKonfiguracja(): Konfiguracja | null {
+  const [konfiguracja, setKonfiguracja] = useState<Konfiguracja | null>(null);
+  useEffect(() => {
+    let aktywne = true;
+    fetch(TSS.konfiguracja, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j: Konfiguracja | null) => {
+        if (aktywne) setKonfiguracja(j);
+      })
+      .catch(() => {
+        /* bez konfiguracji nie ma logowania zespołu, hasło działa dalej */
+      });
+    return () => {
+      aktywne = false;
+    };
+  }, []);
+  return konfiguracja;
+}
+
+function dekodujToken(token: string): Record<string, unknown> | null {
+  try {
+    const srodek = token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const bajty = Array.from(atob(srodek), (z) => "%" + z.charCodeAt(0).toString(16).padStart(2, "0")).join("");
+    return JSON.parse(decodeURIComponent(bajty)) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Logowanie Google dla zespołu (Mateusz 25.11.2026 23:00): każdy z naszego Google Workspace wchodzi bez hasła.
+ * Skrypt Google wczytuje się dopiero po kliknięciu, więc klienci nie łączą się z Google. Po zalogowaniu
+ * ustawiamy ciasteczko nasłuchu „wewnetrzne”, żeby wejście zespołu nie liczyło się jako otwarcie przez klienta.
+ */
+function LogowanieZespolu() {
+  const konfiguracja = useKonfiguracja();
+  const [otwarte, setOtwarte] = useState(false);
+  const [blad, setBlad] = useState("");
+  const miejsce = useRef<HTMLDivElement>(null);
+  const identyfikator = konfiguracja?.google_client_id?.trim() ?? "";
+  const domeny = (konfiguracja?.domeny_zespolu ?? []).map((d) => d.toLowerCase().trim()).filter(Boolean);
+
+  useEffect(() => {
+    if (!otwarte || !identyfikator) return;
+    let anulowane = false;
+    const uruchom = () => {
+      const google = (window as OknoGoogle).google?.accounts?.id;
+      if (anulowane || !google || !miejsce.current) return;
+      google.initialize({
+        client_id: identyfikator,
+        hd: "*",
+        ux_mode: "popup",
+        auto_select: false,
+        callback: (odpowiedz: { credential?: string }) => {
+          const dane = odpowiedz.credential ? dekodujToken(odpowiedz.credential) : null;
+          const domena = String(dane?.hd ?? "").toLowerCase();
+          if (!dane || dane.email_verified !== true || !domena || !domeny.includes(domena)) {
+            setBlad("To konto Google nie należy do zespołu twojastara.site. Wejdź hasłem z maila.");
+            return;
+          }
+          try {
+            sessionStorage.setItem(KLUCZ, "1");
+            sessionStorage.setItem(`${KLUCZ}-zespol`, String(dane.email ?? ""));
+          } catch {
+            /* brak pamięci sesji */
+          }
+          document.cookie = "tss_nasluch=wewnetrzne; domain=.twojastara.site; path=/; max-age=31536000; SameSite=Lax; Secure";
+          window.location.reload();
+        },
+      });
+      google.renderButton(miejsce.current, { type: "standard", theme: "filled_black", size: "large", text: "signin_with", shape: "rectangular", locale: "pl" });
+    };
+    if ((window as OknoGoogle).google?.accounts?.id) {
+      uruchom();
+    } else {
+      const skrypt = document.createElement("script");
+      skrypt.src = "https://accounts.google.com/gsi/client";
+      skrypt.async = true;
+      skrypt.onload = uruchom;
+      skrypt.onerror = () => setBlad("Nie udało się wczytać logowania Google. Odśwież stronę albo wejdź hasłem.");
+      document.head.appendChild(skrypt);
+    }
+    return () => {
+      anulowane = true;
+    };
+  }, [otwarte, identyfikator]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (!identyfikator || domeny.length === 0) return null;
+  return (
+    <div className="mt-8 border-t border-tusz/20 pt-5" data-nasluch-sekcja="logowanie-zespolu">
+      {otwarte ? (
+        <div className="flex flex-col gap-3">
+          <p className="micro-label m-0">Zespół twojastara.site</p>
+          <div ref={miejsce} className="min-h-[44px]" />
+          {blad && (
+            <p role="alert" className="m-0 text-[14px] font-semibold text-czerwien">
+              {blad}
+            </p>
+          )}
+        </div>
+      ) : (
+        <button type="button" onClick={() => setOtwarte(true)} className="cursor-pointer border-0 bg-transparent p-0 text-[13px] font-semibold text-tusz underline underline-offset-2">
+          Logowanie dla zespołu twojastara.site (konto Google)
+        </button>
+      )}
+    </div>
+  );
+}
+
 function Bramka({ wejdz }: { wejdz: () => void }) {
   const [haslo, setHaslo] = useState("");
   const [blad, setBlad] = useState(false);
@@ -202,6 +319,7 @@ function Bramka({ wejdz }: { wejdz: () => void }) {
                 .
               </p>
             </form>
+            <LogowanieZespolu />
           </Pokaz>
         </div>
       </main>
@@ -239,6 +357,7 @@ function Pakiet({
   punkty,
   link,
   przycisk,
+  klik,
   wyrozniony,
 }: {
   nazwa: string;
@@ -248,6 +367,7 @@ function Pakiet({
   punkty: string[];
   link: string;
   przycisk: string;
+  klik: string;
   wyrozniony?: boolean;
 }) {
   return (
@@ -267,7 +387,7 @@ function Pakiet({
           </li>
         ))}
       </ul>
-      <a {...NOWA_KARTA} href={link} className={`btn mt-auto ${wyrozniony ? "btn-tusz" : "btn-roz"}`}>
+      <a {...NOWA_KARTA} href={link} className={`btn mt-auto ${wyrozniony ? "btn-tusz" : "btn-roz"}`} data-nasluch-klik={klik} data-nasluch-etykieta={przycisk}>
         {przycisk} <Strzalka />
       </a>
     </div>
@@ -281,7 +401,7 @@ function Tresc({ zaplacone }: { zaplacone: boolean }) {
   }, []);
 
   const kroki = [
-    ["Wybiera Pan wariant", `Płatność online od razu na tej stronie: ${TSS.ceny.miesiecznie} miesięcznie albo ${TSS.ceny.jednorazowo} jednorazowo.`],
+    ["Wybiera Pan wariant", `Płatność online od razu na tej stronie: ${TSS.ceny.miesiecznie} miesięcznie przez ${TSS.ceny.okres} albo ${TSS.ceny.jednorazowo} jednorazowo.`],
     ["Ostatnie poprawki", "Sprawdzamy z Panem treści, ofertę, logo i dane kontaktowe."],
     ["Publikacja", `Nowa strona startuje na ${WYCENA.domena}, zwykle w ciągu kilku dni roboczych.`],
   ];
@@ -481,7 +601,7 @@ function Tresc({ zaplacone }: { zaplacone: boolean }) {
                   nazwa="Abonament"
                   cena="99 zł"
                   dopisek="/ mies."
-                  podpis="płatne co miesiąc z góry, bez opłaty na start"
+                  podpis={`przez ${TSS.ceny.okres}, płatne co miesiąc z góry, bez opłaty na start`}
                   punkty={[
                     "Wykonanie strony według tego podglądu, bez opłaty na start",
                     `Publikacja na Pana domenie ${WYCENA.domena}`,
@@ -489,8 +609,9 @@ function Tresc({ zaplacone }: { zaplacone: boolean }) {
                     "Zgłoszenie strony do Google",
                     "Zmiany treści rozmową z ChatGPT albo zlecane nam: drobne zmiany w cenie",
                   ]}
-                  link={linkStripe("miesiecznie", WYCENA.slug)}
+                  link={linkZakupu("miesiecznie", WYCENA.slug)}
                   przycisk="Kupuję za 99 zł miesięcznie"
+                  klik="kup-abonament"
                 />
               </Pokaz>
               <Pokaz opoznienie={100}>
@@ -504,8 +625,9 @@ function Tresc({ zaplacone }: { zaplacone: boolean }) {
                     "Płaci Pan raz, a strona jest Pana",
                     "Hosting i późniejsze zmiany po Pana stronie albo zlecane nam osobno, gdy będzie potrzeba",
                   ]}
-                  link={linkStripe("jednorazowo", WYCENA.slug)}
+                  link={linkZakupu("jednorazowo", WYCENA.slug)}
                   przycisk="Kupuję za 690 zł jednorazowo"
+                  klik="kup-jednorazowo"
                 />
               </Pokaz>
             </div>

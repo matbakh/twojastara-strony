@@ -142,6 +142,17 @@ html.tryb-pokazowy img {
   background: #0b0b0b;
 }
 
+/* Drugi wariant (abonament): czarny przycisk z różowym napisem. */
+.demo-btn-ciemny {
+  background: #0b0b0b;
+  color: #f5c6dc;
+}
+
+.demo-btn-ciemny:hover {
+  background: #cc2a1b;
+  color: #fff;
+}
+
 .demo-link {
   font-family: Archivo, Arial, sans-serif;
   font-size: 13px;
@@ -247,6 +258,10 @@ html.tryb-pokazowy img {
   font-size: 14px;
 }
 
+.demo-popover .demo-btn {
+  width: 100%;
+}
+
 .demo-overlay {
   position: fixed;
   inset: 0;
@@ -308,6 +323,13 @@ html.tryb-pokazowy img {
   }
   to {
     transform: none;
+  }
+}
+
+/* Dwa przyciski zakupu zajmują miejsce: tekst informacyjny chowamy na węższych ekranach. */
+@media (max-width: 1199px) {
+  .demo-text {
+    display: none;
   }
 }
 
