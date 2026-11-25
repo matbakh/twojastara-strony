@@ -1,0 +1,198 @@
+{
+  "zamowienie_id": "middin-test-2026-11-25-2310",
+  "kiedy": "2026-11-25T21:37:22.092Z",
+  "url": "https://reefy-dune-zyq8amdu.s1-sandywp.com/",
+  "ok": true,
+  "zrzuty": {
+    "przed": "przed.jpg",
+    "pelna": "przed-pelna.jpg",
+    "tytul": "reefy-dune",
+    "telefon": "przed-telefon.jpg"
+  },
+  "zdjecia": [
+    {
+      "plik": "img/logo.webp",
+      "male": "img/logo-m.webp",
+      "szer": 780,
+      "wys": 200,
+      "szer_m": 780,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/logo-middin-pelne.png",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/",
+      "logo": true
+    },
+    {
+      "plik": "img/logo-2.webp",
+      "male": "img/logo-2-m.webp",
+      "szer": 780,
+      "wys": 200,
+      "szer_m": 780,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/logo-middin-pelne.png",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/realizacje/",
+      "logo": true
+    },
+    {
+      "plik": "img/rozdzielnica-biura-i-magazynu.webp",
+      "male": "img/rozdzielnica-biura-i-magazynu-m.webp",
+      "szer": 1440,
+      "wys": 1080,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/25.webp",
+      "alt": "Rozdzielnica biura i magazynu",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/kamery-monitoringu-zamontowane-na-maszcie.webp",
+      "male": "img/kamery-monitoringu-zamontowane-na-maszcie-m.webp",
+      "szer": 1100,
+      "wys": 1262,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/monitoring.webp",
+      "alt": "Kamery monitoringu zamontowane na maszcie",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-05.webp",
+      "male": "img/foto-05-m.webp",
+      "szer": 1280,
+      "wys": 720,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/hero.jpg",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/",
+      "tlo": true
+    },
+    {
+      "plik": "img/foto-06.webp",
+      "male": "img/foto-06-m.webp",
+      "szer": 850,
+      "wys": 1512,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/serwis.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-07.webp",
+      "male": "img/foto-07-m.webp",
+      "szer": 850,
+      "wys": 1274,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/osprzet.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/termostat-i-wlaczniki-oswietlenia-na-zoltej-scia.webp",
+      "male": "img/termostat-i-wlaczniki-oswietlenia-na-zoltej-scia-m.webp",
+      "szer": 1200,
+      "wys": 900,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/osprzet-natynkowy.webp",
+      "alt": "Termostat i włączniki oświetlenia na żółtej ścianie",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/rozdzielnice-i-wlaczniki-na-zoltej-scianie.webp",
+      "male": "img/rozdzielnice-i-wlaczniki-na-zoltej-scianie-m.webp",
+      "szer": 900,
+      "wys": 1200,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/instalacja-o-nas.webp",
+      "alt": "Rozdzielnice i włączniki na żółtej ścianie",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/o-nas/"
+    },
+    {
+      "plik": "img/rozdzielnica-elektryczna-w-jasnym-korytarzu.webp",
+      "male": "img/rozdzielnica-elektryczna-w-jasnym-korytarzu-m.webp",
+      "szer": 1200,
+      "wys": 900,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/rozdzielnica-ilustracja.webp",
+      "alt": "Rozdzielnica elektryczna w jasnym korytarzu",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/o-nas/"
+    },
+    {
+      "plik": "img/foto-11.webp",
+      "male": "img/foto-11-m.webp",
+      "szer": 1200,
+      "wys": 800,
+      "szer_m": 800,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/montaz.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-12.webp",
+      "male": "img/foto-12-m.webp",
+      "szer": 550,
+      "wys": 979,
+      "szer_m": 550,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/8-mini.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-13.webp",
+      "male": "img/foto-13-m.webp",
+      "szer": 550,
+      "wys": 979,
+      "szer_m": 550,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/14-mini.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-14.webp",
+      "male": "img/foto-14-m.webp",
+      "szer": 550,
+      "wys": 978,
+      "szer_m": 550,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/2-mini.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-15.webp",
+      "male": "img/foto-15-m.webp",
+      "szer": 550,
+      "wys": 978,
+      "szer_m": 550,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/13-mini.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-16.webp",
+      "male": "img/foto-16-m.webp",
+      "szer": 550,
+      "wys": 825,
+      "szer_m": 550,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/10-mini.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-17.webp",
+      "male": "img/foto-17-m.webp",
+      "szer": 550,
+      "wys": 824,
+      "szer_m": 550,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/4-mini.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    },
+    {
+      "plik": "img/foto-18.webp",
+      "male": "img/foto-18-m.webp",
+      "szer": 550,
+      "wys": 468,
+      "szer_m": 550,
+      "zrodlo": "https://reefy-dune-zyq8amdu.s1-sandywp.com/wp-content/themes/middin-technology-v2/assets/realizacje/6-mini.webp",
+      "alt": "",
+      "strona": "https://reefy-dune-zyq8amdu.s1-sandywp.com/"
+    }
+  ],
+  "bledy": []
+}
