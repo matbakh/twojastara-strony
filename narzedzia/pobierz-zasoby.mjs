@@ -191,8 +191,8 @@ async function obsluz(slug) {
       lista.push({ url: p.url, nazwa: p.nazwa, alt: p.alt || "", strona: "zamowienie" });
     }
   }
-  const logo = kandydaci.filter((k) => k.logo && !widziane.has(k.url)).slice(0, 2);
-  for (const k of logo) {
+  for (const k of kandydaci.filter((x) => x.logo)) {
+    if (widziane.has(k.url) || lista.filter((x) => x.logo).length >= 2) continue;
     widziane.add(k.url);
     lista.push({ url: k.url, nazwa: "logo", alt: k.alt, strona: k.strona, logo: true });
   }
