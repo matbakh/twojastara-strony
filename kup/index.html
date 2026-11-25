@@ -52,17 +52,26 @@
     if (!w) { html.className = "brak-wariantu"; return; }
     html.className = "przekierowanie";
     try { localStorage.setItem("tss-kup", JSON.stringify({ k: k, w: w, t: Date.now() })); } catch (e) {}
-    fetch("/tss.json", { cache: "no-store" })
+    // Zapasowe linki na wypadek, gdyby tss.json się nie wczytał (te same co w tss.json z 25.11.2026).
+    var ZAPAS = {
+      miesiecznie: "https://buy.stripe.com/fZu6oB5lQaUK8Ub1cN5os05",
+      jednorazowo: "https://buy.stripe.com/8x23cpaGa0g6b2j6x75os06"
+    };
+    function idz(link) {
+      if (link && /^https:\/\/buy\.stripe\.com\//.test(link)) {
+        location.replace(link + (link.indexOf("?") > -1 ? "&" : "?") + "client_reference_id=" + encodeURIComponent(k || "twojastara"));
+        return true;
+      }
+      return false;
+    }
+    // ?t= omija pamięć podręczną GitHub Pages (do 10 minut), żeby zmiana linków działała od razu.
+    fetch("/tss.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (j) {
         var link = j && j.stripe ? j.stripe[w] : "";
-        if (link && /^https:\/\/buy\.stripe\.com\//.test(link)) {
-          location.replace(link + (link.indexOf("?") > -1 ? "&" : "?") + "client_reference_id=" + encodeURIComponent(k || "twojastara"));
-        } else {
-          html.className = "bez-platnosci";
-        }
+        if (!idz(link) && !idz(ZAPAS[w])) html.className = "bez-platnosci";
       })
-      .catch(function () { html.className = "bez-platnosci"; });
+      .catch(function () { if (!idz(ZAPAS[w])) html.className = "bez-platnosci"; });
   })();
 </script>
 </head>
