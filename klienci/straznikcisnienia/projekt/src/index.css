@@ -1,0 +1,409 @@
+@import "tailwindcss";
+
+/* Archivo (zmienna szerokość i grubość, polskie znaki) + JetBrains Mono do cen i etykiet */
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/archivo/wdth-italic.css";
+@import "@fontsource/jetbrains-mono/latin-500.css";
+@import "@fontsource/jetbrains-mono/latin-ext-500.css";
+
+@theme {
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-naglowek: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Kolory marki Strażnik Ciśnienia: grafit z obecnego nagłówka i turkus z logo */
+  --color-grafit: #14181b;
+  --color-grafit-2: #1c2226;
+  --color-grafit-3: #2a3237;
+  --color-turkus: #1eacc7;
+  --color-turkus-2: #13879d;
+  --color-turkus-jasny: #dff3f7;
+  --color-mgla: #eef1f2;
+  --color-mgla-2: #e3e8ea;
+  --color-zielony: #2fbf5b;
+  --color-czerwony: #e5372b;
+
+  --breakpoint-xs: 480px;
+}
+
+:root {
+  --grafit: #14181b;
+  --turkus: #1eacc7;
+  --demo-h: 0px;
+  --naglowek-h: 72px;
+  color-scheme: light;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --naglowek-h: 64px;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--color-grafit);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-turkus);
+    color: var(--color-grafit);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-turkus-2);
+    outline-offset: 3px;
+  }
+
+  .na-ciemnym :focus-visible {
+    outline-color: var(--color-turkus);
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--demo-h) + var(--naglowek-h) + 12px);
+  }
+}
+
+@layer components {
+  .kontener {
+    width: 100%;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: 32px;
+  }
+
+  @media (max-width: 767px) {
+    .kontener {
+      padding-inline: 18px;
+    }
+  }
+
+  /* Nagłówki: szerszy krój (Archivo, szerokość 110%) */
+  .naglowek-szeroki {
+    font-family: var(--font-naglowek);
+    font-stretch: 110%;
+    font-weight: 750;
+    letter-spacing: -0.035em;
+  }
+
+  /* Etykieta sekcji: kreska w kolorze turkusu + tekst mono */
+  .etykieta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(20 24 27 / 0.7);
+  }
+
+  .etykieta::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    background: var(--color-turkus);
+    flex: none;
+  }
+
+  .na-ciemnym .etykieta {
+    color: rgb(255 255 255 / 0.72);
+  }
+
+  /* Przyciski (jak w BYQ Stringer: proste prostokąty) */
+  .przycisk {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 13px 22px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-family: var(--font-naglowek);
+    font-size: 16px;
+    font-stretch: 105%;
+    font-weight: 650;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.2s ease;
+  }
+
+  .przycisk:active {
+    transform: translateY(1px);
+  }
+
+  .przycisk svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .przycisk:hover svg.strzalka {
+    transform: translateX(3px);
+  }
+
+  .przycisk-turkus {
+    background: var(--color-turkus);
+    color: var(--color-grafit);
+    border-color: var(--color-turkus);
+  }
+
+  .przycisk-turkus:hover {
+    background: #45c0d7;
+    border-color: #45c0d7;
+  }
+
+  .przycisk-grafit {
+    background: var(--color-grafit);
+    color: #fff;
+    border-color: var(--color-grafit);
+  }
+
+  .przycisk-grafit:hover {
+    background: var(--color-grafit-3);
+    border-color: var(--color-grafit-3);
+  }
+
+  .przycisk-obrys {
+    background: transparent;
+    color: var(--color-grafit);
+    border-color: rgb(20 24 27 / 0.28);
+  }
+
+  .przycisk-obrys:hover {
+    border-color: var(--color-grafit);
+    background: rgb(20 24 27 / 0.04);
+  }
+
+  .przycisk-obrys-jasny {
+    background: transparent;
+    color: #fff;
+    border-color: rgb(255 255 255 / 0.32);
+  }
+
+  .przycisk-obrys-jasny:hover {
+    background: rgb(255 255 255 / 0.08);
+    border-color: rgb(255 255 255 / 0.7);
+  }
+
+  /* Ścięty róg (jak w BYQ Kelvin pricing) */
+  .sciety-rog {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  }
+
+  /* Link tekstowy z kreską (BYQ Stringer „cta-text”) */
+  .link-kreska {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .link-kreska:hover {
+    color: var(--color-turkus);
+  }
+
+  @media (max-width: 767px) {
+    .przycisk {
+      min-height: 48px;
+      padding: 12px 16px;
+      font-size: 15px;
+    }
+  }
+
+  /* Pojawianie się przy przewijaniu */
+  [data-pokaz] {
+    opacity: 0;
+    transform: translate3d(0, var(--przesuniecie, 24px), 0);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--opoznienie, 0ms);
+  }
+
+  [data-pokaz].widoczny {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Słowa nagłówka wysuwane spod maski (BYQ Stringer: data-reveal="words") */
+  .slowa[data-pokaz] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slowa .slowo {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+
+  .slowa .slowo > span {
+    display: inline-block;
+    transform: translateY(115%);
+    transition: transform 0.9s cubic-bezier(0.2, 0.75, 0.15, 1);
+    transition-delay: calc(var(--opoznienie, 0ms) + var(--i, 0) * 70ms);
+  }
+
+  .slowa.widoczny .slowo > span {
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-pokaz] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .slowa .slowo > span {
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* FAQ */
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] .plus-pion {
+    transform: scaleY(0);
+  }
+
+  .plus-pion {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* Pulsujący przycisk telefonu na telefonie */
+  .puls {
+    box-shadow: 0 0 0 0 rgb(30 172 199 / 0.6);
+    animation: puls 2.4s ease-out infinite;
+  }
+
+  @keyframes puls {
+    0% {
+      box-shadow: 0 0 0 0 rgb(30 172 199 / 0.55);
+    }
+    70% {
+      box-shadow: 0 0 0 16px rgb(30 172 199 / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgb(30 172 199 / 0);
+    }
+  }
+
+  /* Kropka stanu wskaźnika (zielona albo czerwona) */
+  .kropka-stan {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    flex: none;
+    background: var(--color-zielony);
+    color: var(--color-zielony);
+    transition: background-color 0.4s ease;
+  }
+
+  .kropka-stan.spadek {
+    background: var(--color-czerwony);
+    color: var(--color-czerwony);
+  }
+
+  .kropka-stan::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
+    border: 2px solid currentColor;
+    opacity: 0;
+    animation: tetno 2.2s ease-out infinite;
+  }
+
+  @keyframes tetno {
+    0% {
+      opacity: 0.6;
+      transform: scale(0.6);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.7);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .puls,
+    .kropka-stan::after {
+      animation: none;
+    }
+  }
+
+  /* Delikatna podziałka na ciemnych sekcjach (jak skala manometru) */
+  .skala {
+    background-image: linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 56px 100%;
+  }
+
+  .bez-paska::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bez-paska {
+    scrollbar-width: none;
+  }
+}
