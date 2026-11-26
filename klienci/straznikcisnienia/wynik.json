@@ -1,0 +1,137 @@
+{
+  "zamowienie_id": "straznikcisnienia-20261126-0913",
+  "kiedy": "2026-11-26T08:13:58.606Z",
+  "url": "https://straznikcisnienia.pl/",
+  "ok": true,
+  "zrzuty": {
+    "przed": "przed.jpg",
+    "pelna": "przed-pelna.jpg",
+    "tytul": "Strażnik Ciśnienia - innowacyjny monitor ciśnienia w oponach Twojego auta",
+    "telefon": "przed-telefon.jpg"
+  },
+  "zdjecia": [
+    {
+      "plik": "img/zestaw-auto.webp",
+      "male": "img/zestaw-auto-m.webp",
+      "szer": 1355,
+      "wys": 1879,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/images/straznikauto.jpg",
+      "alt": "Zestaw Strażnik Ciśnienia, 4 wskaźniki",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/zestaw-rower.webp",
+      "male": "img/zestaw-rower-m.webp",
+      "szer": 1308,
+      "wys": 1816,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/images/straznikrower.jpg",
+      "alt": "Zestaw Strażnik Ciśnienia do roweru, 2 wskaźniki",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/straznik-1.webp",
+      "male": "img/straznik-1-m.webp",
+      "szer": 1600,
+      "wys": 1101,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/images/1.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/straznik-2.webp",
+      "male": "img/straznik-2-m.webp",
+      "szer": 1600,
+      "wys": 1200,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/images/2.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/tlo-o-nas.webp",
+      "male": "img/tlo-o-nas-m.webp",
+      "szer": 1600,
+      "wys": 457,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/upload/about-us-bg1.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/tlo-korzysci.webp",
+      "male": "img/tlo-korzysci-m.webp",
+      "szer": 1600,
+      "wys": 220,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/upload/service-title-bg1.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/tlo-flota.webp",
+      "male": "img/tlo-flota-m.webp",
+      "szer": 1600,
+      "wys": 674,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/upload/fleet-bg-hp1.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/droga.webp",
+      "male": "img/droga-m.webp",
+      "szer": 1280,
+      "wys": 792,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/upload/shutterstock_77669479.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/logo.webp",
+      "male": "img/logo-m.webp",
+      "szer": 1600,
+      "wys": 462,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/images/logo.png",
+      "alt": "",
+      "strona": "https://straznikcisnienia.pl/",
+      "logo": true
+    },
+    {
+      "plik": "img/foto-13.webp",
+      "male": "img/foto-13-m.webp",
+      "szer": 1600,
+      "wys": 755,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/upload/slider-item-1.jpg",
+      "alt": "",
+      "strona": "https://straznikcisnienia.pl/"
+    },
+    {
+      "plik": "img/foto-14.webp",
+      "male": "img/foto-14-m.webp",
+      "szer": 1280,
+      "wys": 792,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/upload/foteczka.jpg",
+      "alt": "",
+      "strona": "https://straznikcisnienia.pl/"
+    },
+    {
+      "plik": "img/foto-15.webp",
+      "male": "img/foto-15-m.webp",
+      "szer": 1600,
+      "wys": 453,
+      "szer_m": 800,
+      "zrodlo": "https://straznikcisnienia.pl/images/page-title-background.jpg",
+      "alt": "",
+      "strona": "https://straznikcisnienia.pl/straznik.html",
+      "tlo": true
+    }
+  ],
+  "bledy": []
+}
