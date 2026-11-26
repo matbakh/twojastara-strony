@@ -1,0 +1,25 @@
+{
+  "id": "straznikcisnienia-20261126-0913",
+  "url": "https://straznikcisnienia.pl/",
+  "podstrony": [
+    "https://straznikcisnienia.pl/straznik.html",
+    "https://straznikcisnienia.pl/zamow.html",
+    "https://straznikcisnienia.pl/wspolpraca.html",
+    "https://straznikcisnienia.pl/faq.html"
+  ],
+  "zdjecia": [
+    { "url": "https://straznikcisnienia.pl/images/straznikauto.jpg", "nazwa": "zestaw-auto", "alt": "Zestaw Strażnik Ciśnienia, 4 wskaźniki" },
+    { "url": "https://straznikcisnienia.pl/images/straznikrower.jpg", "nazwa": "zestaw-rower", "alt": "Zestaw Strażnik Ciśnienia do roweru, 2 wskaźniki" },
+    { "url": "https://straznikcisnienia.pl/images/s7.jpg", "nazwa": "cisnienie-prawidlowe", "alt": "Prawidłowe ciśnienie w oponach" },
+    { "url": "https://straznikcisnienia.pl/images/s6.jpg", "nazwa": "cisnienie-nieprawidlowe", "alt": "Nieprawidłowe ciśnienie w oponach" },
+    { "url": "https://straznikcisnienia.pl/images/1.jpg", "nazwa": "straznik-1", "alt": "" },
+    { "url": "https://straznikcisnienia.pl/images/2.jpg", "nazwa": "straznik-2", "alt": "" },
+    { "url": "https://straznikcisnienia.pl/upload/about-us-bg1.jpg", "nazwa": "tlo-o-nas", "alt": "" },
+    { "url": "https://straznikcisnienia.pl/upload/service-title-bg1.jpg", "nazwa": "tlo-korzysci", "alt": "" },
+    { "url": "https://straznikcisnienia.pl/upload/fleet-bg-hp1.jpg", "nazwa": "tlo-flota", "alt": "" },
+    { "url": "https://straznikcisnienia.pl/upload/shutterstock_77669479.jpg", "nazwa": "droga", "alt": "" },
+    { "url": "https://straznikcisnienia.pl/images/icon.png", "nazwa": "znak", "alt": "" }
+  ],
+  "auto": true,
+  "limit": 20
+}
