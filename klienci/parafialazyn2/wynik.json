@@ -1,0 +1,192 @@
+{
+  "zamowienie_id": "parafialazyn2-20261127-2246",
+  "kiedy": "2026-11-27T21:46:55.290Z",
+  "url": "https://parafialazyn2.pl/",
+  "ok": true,
+  "zrzuty": {
+    "przed": "przed.jpg",
+    "pelna": "przed-pelna.jpg",
+    "tytul": "Parafia Rzymskokatolicka pw. Świętych Apostołów Piotra i Pawła w Łążynie II | Diecezja Włocławska",
+    "telefon": "przed-telefon.jpg"
+  },
+  "zdjecia": [
+    {
+      "plik": "img/kosciol-glowne.webp",
+      "male": "img/kosciol-glowne-m.webp",
+      "szer": 1600,
+      "wys": 1200,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/CmsSettings/1704297353-94b63a6fe43b9e04d277b2fcf26eb0ac.jpg",
+      "alt": "Kościół Świętych Apostołów Piotra i Pawła w Łążynie II",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/naglowek-tlo.webp",
+      "male": "img/naglowek-tlo-m.webp",
+      "szer": 1600,
+      "wys": 417,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/CmsSettings/1703864186-f614c7f734cc1c27df8bb9db8fdf7693.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-1.webp",
+      "male": "img/kosciol-1-m.webp",
+      "szer": 1600,
+      "wys": 1200,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296096-3edce26fbf20aeb48fdf1e9e16389031_hd.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-2.webp",
+      "male": "img/kosciol-2-m.webp",
+      "szer": 1600,
+      "wys": 1200,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296097-050543afaadda8af078903546e7559c8_hd.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-3.webp",
+      "male": "img/kosciol-3-m.webp",
+      "szer": 1600,
+      "wys": 1600,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296242-3f3beee577969f76166cb7274de14528_hd.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-4.webp",
+      "male": "img/kosciol-4-m.webp",
+      "szer": 1600,
+      "wys": 1600,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296243-6c2e764133ae8ac6f62dae27a4a26dad_hd.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-5.webp",
+      "male": "img/kosciol-5-m.webp",
+      "szer": 1600,
+      "wys": 1600,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296246-58f994efed5b5dd093d8bfadacfba398_hd.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-6.webp",
+      "male": "img/kosciol-6-m.webp",
+      "szer": 1600,
+      "wys": 1600,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296246-72981be63818f43261ded9d6eb5ce400_hd.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-7.webp",
+      "male": "img/kosciol-7-m.webp",
+      "szer": 1600,
+      "wys": 1600,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296248-4a672c369e3821335bb979838a9a340c_hd.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/kosciol-8.webp",
+      "male": "img/kosciol-8-m.webp",
+      "szer": 692,
+      "wys": 922,
+      "szer_m": 692,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296297-14b33751d6c57c4a5543ff8e3d10f015.jpg",
+      "alt": "Kościół",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/stopka-tlo.webp",
+      "male": "img/stopka-tlo-m.webp",
+      "szer": 1600,
+      "wys": 677,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/CmsSettings/1703864464-fffbbc2c4d2170fb42fdaf6482ab761a_hd.webp",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/droga-krzyzowa.webp",
+      "male": "img/droga-krzyzowa-m.webp",
+      "szer": 400,
+      "wys": 316,
+      "szer_m": 400,
+      "zrodlo": "https://parafialazyn2.pl/storage/News/1712272202-2e33c0a04b6fce08bedd3730f77acb5c_s.jpg",
+      "alt": "Ekstremalna Droga Krzyżowa w parafii Łążyn II",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/pielgrzymka.webp",
+      "male": "img/pielgrzymka-m.webp",
+      "szer": 400,
+      "wys": 300,
+      "szer_m": 400,
+      "zrodlo": "https://parafialazyn2.pl/storage/News/1754133158-f39849a2fda69fa1158755e0b63114e1_s.jpg",
+      "alt": "Pielgrzymka do Medziugorie",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/aktualnosc-modlitwa.webp",
+      "male": "img/aktualnosc-modlitwa-m.webp",
+      "szer": 400,
+      "wys": 267,
+      "szer_m": 400,
+      "zrodlo": "https://parafialazyn2.pl/storage/News/1721992578-16c9fcaa7cf33b97d1a23ed1f7bc5d81_s.jpg",
+      "alt": "",
+      "strona": "zamowienie"
+    },
+    {
+      "plik": "img/logo.svg",
+      "zrodlo": "https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg",
+      "alt": "",
+      "strona": "https://parafialazyn2.pl/",
+      "logo": true
+    },
+    {
+      "plik": "img/foto-18.webp",
+      "male": "img/foto-18-m.webp",
+      "szer": 1600,
+      "wys": 900,
+      "szer_m": 800,
+      "zrodlo": "https://parafialazyn2.pl/storage/News/1723817342-a2f06282e2d920f52871607ea9b1109b.png",
+      "alt": "",
+      "strona": "https://parafialazyn2.pl/"
+    },
+    {
+      "plik": "img/foto-19.webp",
+      "male": "img/foto-19-m.webp",
+      "szer": 400,
+      "wys": 300,
+      "szer_m": 400,
+      "zrodlo": "https://parafialazyn2.pl/storage/News/1721757338-115fcc08dda77c320857751dc435d4d2_s.jpg",
+      "alt": "",
+      "strona": "https://parafialazyn2.pl/"
+    },
+    {
+      "plik": "img/kosciol.webp",
+      "male": "img/kosciol-m.webp",
+      "szer": 400,
+      "wys": 300,
+      "szer_m": 400,
+      "zrodlo": "https://parafialazyn2.pl/storage/Gallery/1704296096-3edce26fbf20aeb48fdf1e9e16389031_s.jpg",
+      "alt": "Kościół",
+      "strona": "https://parafialazyn2.pl/"
+    }
+  ],
+  "bledy": []
+}
