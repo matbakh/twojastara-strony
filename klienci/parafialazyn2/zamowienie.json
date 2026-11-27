@@ -1,0 +1,30 @@
+{
+  "id": "parafialazyn2-20261127-2246",
+  "url": "https://parafialazyn2.pl/",
+  "podstrony": [
+    "https://parafialazyn2.pl/galeria/kosciol,1",
+    "https://parafialazyn2.pl/sakramenty",
+    "https://parafialazyn2.pl/historia-parafii",
+    "https://parafialazyn2.pl/kontakt"
+  ],
+  "zdjecia": [
+    { "url": "https://parafialazyn2.pl/storage/CmsSettings/1704297353-94b63a6fe43b9e04d277b2fcf26eb0ac.jpg", "nazwa": "kosciol-glowne", "alt": "Kościół Świętych Apostołów Piotra i Pawła w Łążynie II" },
+    { "url": "https://parafialazyn2.pl/storage/CmsSettings/1703864186-f614c7f734cc1c27df8bb9db8fdf7693.jpg", "nazwa": "naglowek-tlo", "alt": "" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296096-3edce26fbf20aeb48fdf1e9e16389031_hd.jpg", "nazwa": "kosciol-1", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296097-050543afaadda8af078903546e7559c8_hd.jpg", "nazwa": "kosciol-2", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296242-3f3beee577969f76166cb7274de14528_hd.jpg", "nazwa": "kosciol-3", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296243-6c2e764133ae8ac6f62dae27a4a26dad_hd.jpg", "nazwa": "kosciol-4", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296246-58f994efed5b5dd093d8bfadacfba398_hd.jpg", "nazwa": "kosciol-5", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296246-72981be63818f43261ded9d6eb5ce400_hd.jpg", "nazwa": "kosciol-6", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296248-4a672c369e3821335bb979838a9a340c_hd.jpg", "nazwa": "kosciol-7", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/Gallery/1704296297-14b33751d6c57c4a5543ff8e3d10f015.jpg", "nazwa": "kosciol-8", "alt": "Kościół" },
+    { "url": "https://parafialazyn2.pl/storage/CmsSettings/1703864540-200483df6921270356c022238f75587f.png", "nazwa": "logo-parafii", "alt": "Logo parafii" },
+    { "url": "https://parafialazyn2.pl/storage/CmsSettings/1703864464-fffbbc2c4d2170fb42fdaf6482ab761a_hd.webp", "nazwa": "stopka-tlo", "alt": "" },
+    { "url": "https://parafialazyn2.pl/storage/News/1712272202-2e33c0a04b6fce08bedd3730f77acb5c_s.jpg", "nazwa": "droga-krzyzowa", "alt": "Ekstremalna Droga Krzyżowa w parafii Łążyn II" },
+    { "url": "https://parafialazyn2.pl/storage/News/1754133158-f39849a2fda69fa1158755e0b63114e1_s.jpg", "nazwa": "pielgrzymka", "alt": "Pielgrzymka do Medziugorie" },
+    { "url": "https://parafialazyn2.pl/storage/News/1721992578-16c9fcaa7cf33b97d1a23ed1f7bc5d81_s.jpg", "nazwa": "aktualnosc-modlitwa", "alt": "" },
+    { "url": "https://parafialazyn2.pl/themes/favicon/apple-touch-icon.png", "nazwa": "ikona", "alt": "" }
+  ],
+  "auto": true,
+  "limit": 20
+}
