@@ -1,0 +1,379 @@
+@import "tailwindcss";
+
+@import "@fontsource/cinzel/latin-500.css";
+@import "@fontsource/cinzel/latin-ext-500.css";
+@import "@fontsource/cinzel/latin-600.css";
+@import "@fontsource/cinzel/latin-ext-600.css";
+@import "@fontsource/cinzel/latin-700.css";
+@import "@fontsource/cinzel/latin-ext-700.css";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-ext-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-ext-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-ext-600.css";
+
+/* Parafia Łążyn II: złoto z obecnej strony (#978339, #DDCE97), krój Cinzel z obecnych nagłówków,
+   ciepły krem jako tło i atrament zamiast czerni. */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-cinzel: "Cinzel", "Times New Roman", serif;
+
+  --color-atrament: #1d1a14;
+  --color-atrament-2: #2a251c;
+  --color-atrament-3: #3a3326;
+  --color-zloto: #978339;
+  --color-zloto-ciemne: #6f5f22;
+  --color-zloto-jasne: #ddce97;
+  --color-zloto-jasne-2: #cfbd7b;
+  --color-krem: #f7f3e8;
+  --color-krem-2: #efe8d6;
+  --color-krem-3: #e3d9bf;
+  --color-papier: #fffdf8;
+
+  --breakpoint-xs: 480px;
+}
+
+:root {
+  --atrament: #1d1a14;
+  --zloto: #978339;
+  --zloto-jasne: #ddce97;
+  --demo-h: 0px;
+  --naglowek-h: 76px;
+  color-scheme: light;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --naglowek-h: 64px;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-krem);
+    color: var(--color-atrament);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-zloto-jasne);
+    color: var(--color-atrament);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-atrament);
+    outline-offset: 3px;
+  }
+
+  .na-ciemnym :focus-visible {
+    outline-color: var(--color-zloto-jasne);
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--demo-h) + var(--naglowek-h) + 12px);
+  }
+}
+
+@layer components {
+  .kontener {
+    width: 100%;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: 32px;
+  }
+
+  @media (max-width: 767px) {
+    .kontener {
+      padding-inline: 18px;
+    }
+  }
+
+  /* Etykieta sekcji: złoty krzyżyk + tekst w kapitalikach */
+  .etykieta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-zloto-ciemne);
+  }
+
+  .etykieta::before {
+    content: "";
+    width: 9px;
+    height: 13px;
+    flex: none;
+    background:
+      linear-gradient(currentColor, currentColor) center 3px / 9px 1.6px no-repeat,
+      linear-gradient(currentColor, currentColor) center 0 / 1.6px 13px no-repeat;
+  }
+
+  .na-ciemnym .etykieta {
+    color: var(--color-zloto-jasne);
+  }
+
+  /* Nagłówki w Cinzel (jak na obecnej stronie) */
+  .tytul {
+    font-family: var(--font-cinzel);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  /* Przyciski: lekko zaokrąglone, spokojne */
+  .przycisk {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 12px 22px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+      color 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.2s ease;
+  }
+
+  .przycisk:active {
+    transform: translateY(1px);
+  }
+
+  .przycisk svg {
+    width: 17px;
+    height: 17px;
+    flex: none;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .przycisk:hover svg.strzalka {
+    transform: translateX(3px);
+  }
+
+  .przycisk-zloty {
+    background: var(--color-zloto-jasne);
+    color: var(--color-atrament);
+  }
+
+  .przycisk-zloty:hover {
+    background: #e8dcae;
+  }
+
+  .przycisk-atrament {
+    background: var(--color-atrament);
+    color: #fff;
+  }
+
+  .przycisk-atrament:hover {
+    background: var(--color-atrament-3);
+  }
+
+  .przycisk-obrys {
+    background: transparent;
+    color: var(--color-atrament);
+    border-color: rgb(29 26 20 / 0.28);
+  }
+
+  .przycisk-obrys:hover {
+    border-color: var(--color-atrament);
+    background: rgb(29 26 20 / 0.04);
+  }
+
+  .przycisk-obrys-jasny {
+    background: rgb(255 255 255 / 0.06);
+    color: #fff;
+    border-color: rgb(255 255 255 / 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .przycisk-obrys-jasny:hover {
+    background: rgb(255 255 255 / 0.14);
+    border-color: #fff;
+  }
+
+  @media (max-width: 767px) {
+    .przycisk {
+      min-height: 48px;
+      padding: 11px 18px;
+      font-size: 15px;
+    }
+  }
+
+  /* Łuk jak okno kościoła (zabieg nr 1) */
+  .luk {
+    border-radius: 9999px 9999px 0 0;
+    overflow: hidden;
+  }
+
+  .luk-ramka {
+    border-radius: 9999px 9999px 0 0;
+    padding: 10px;
+    border: 1px solid rgb(151 131 57 / 0.45);
+  }
+
+  /* Pierwszy ekran: etapowe wejście (BYQ babka-hero-3) i powolne przybliżenie zdjęcia */
+  .wejscie {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+    animation: wejscie 0.7s ease-out forwards;
+    animation-delay: var(--opoznienie, 0ms);
+  }
+
+  @keyframes wejscie {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .hero-zdjecie {
+    transform: scale(1.06);
+    animation: hero-zoom 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  @keyframes hero-zoom {
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wejscie {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+    .hero-zdjecie {
+      transform: none;
+      animation: none;
+    }
+  }
+
+  /* Pojawianie się przy przewijaniu */
+  [data-pokaz] {
+    opacity: 0;
+    transform: translate3d(0, var(--przesuniecie, 24px), 0);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--opoznienie, 0ms);
+  }
+
+  [data-pokaz].widoczny {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-pokaz] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Duże daty i godziny jako grafika (zabieg nr 2) */
+  .liczba {
+    font-family: var(--font-cinzel);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-variant-numeric: lining-nums;
+  }
+
+  /* Delikatny ornament linii */
+  .linia-zlota {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(151 131 57 / 0.55) 18%, rgb(151 131 57 / 0.55) 82%, transparent);
+  }
+
+  /* FAQ i rozwijane listy dokumentów */
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] .plus-pion {
+    transform: scaleY(0);
+  }
+
+  .plus-pion {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* Telefon na mobile: pulsujący przycisk */
+  .puls {
+    box-shadow: 0 0 0 0 rgb(221 206 151 / 0.7);
+    animation: puls 2.4s ease-out infinite;
+  }
+
+  @keyframes puls {
+    0% {
+      box-shadow: 0 0 0 0 rgb(221 206 151 / 0.65);
+    }
+    70% {
+      box-shadow: 0 0 0 16px rgb(221 206 151 / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgb(221 206 151 / 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .puls {
+      animation: none;
+    }
+  }
+
+  .ziarno {
+    background-image: radial-gradient(rgb(255 255 255 / 0.03) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+}

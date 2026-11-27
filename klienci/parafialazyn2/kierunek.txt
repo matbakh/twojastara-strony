@@ -1,0 +1,6 @@
+Kierunek: spokojny, ciepły edytorial dla parafii: zdjęcie kościoła o zachodzie słońca na cały pierwszy ekran, a pod nagłówkiem godziny Mszy Świętych w wierszach jak w metryczce; Cinzel z obecnej strony w nagłówkach, złoto parafii jako akcent na kremowym tle, zdjęcia w łukach jak okna kościoła i historia parafii jako oś czasu z dużymi datami.
+Inspiracja: https://app.byq.supply/sections/babka-hero-3 (BYQ Supply, Full-Bleed Hero with Meta Rows). Wzięte: zdjęcie na całą szerokość z nagłówkiem przy dolnej krawędzi, wiersze klucz-wartość pod nagłówkiem (u nas godziny Mszy) i etapowe wejście tekstu (etykieta, nagłówek, wiersze co 100 ms).
+Oś czasu: https://app.byq.supply/sections/presence-process-2 (rok po lewej, treść po prawej, cienkie linie między wpisami, wejście przy przewijaniu).
+Komponenty BYQ: babka-hero-3 (hero), presence-process-2 (historia parafii).
+Behance (wyszukiwanie „church parish website redesign”) dał tylko listy wyników bez podglądu, więc kierunek oparty na bibliotece BYQ.
+Inaczej niż MID&DIN i Strażnik Ciśnienia: zdjęcie na cały ekran z wierszami godzin zamiast kolumn zdjęć i zamiast ciemnego układu dzielonego; zabiegi: łukowe kadry zdjęć i daty jako grafika zamiast podkreśleń, kart odsłanianych po najechaniu i nagłówka słowo po słowie.
